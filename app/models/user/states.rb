@@ -53,7 +53,7 @@ class User
       self.deleted_at = nil
       self.activation_code = ""
 
-      UserMailer.activation(self).deliver unless using_openid
+      # UserMailer.activation(self).deliver unless using_openid
     end
 
     def remove_moderatorships
