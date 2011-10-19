@@ -23,7 +23,7 @@ The popular rails-based Beast forum, rewritten from the ground up with the same 
     $ rake db:create
     $ rake db:schema:load
     $ rails c
-      site= Site.new({name: "weiyi",host: "localhost"})
+      site= Site.new({name: "weiyi",host: "localhost"}) # if deploy to production , u must notice host to correct name
       site.save
       user = User.new({login: "admin",email: "iamwxianfeng@qq.com",password: "123456",password_confirmation: "123456",admin: true,state: "active"})
       user.site_id = site.id
