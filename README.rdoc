@@ -25,7 +25,8 @@ The popular rails-based Beast forum, rewritten from the ground up with the same 
     $ rails c
       site= Site.new({name: "weiyi",host: "localhost"})
       site.save
-      user = User.new({login: "admin",email: "iamwxianfeng@qq.com",password: "123456",password_confirmation: "123456",admin: true,state: "active",site_id: site.id})
+      user = User.new({login: "admin",email: "iamwxianfeng@qq.com",password: "123456",password_confirmation: "123456",admin: true,state: "active"})
+      user.site_id = site.id
       user.save(:validate=>false)
     $ rails s
 
