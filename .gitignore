@@ -12,3 +12,4 @@ public/javascripts/beast.js
 .bundle
 *.tmproj
 nbproject
+Gemfile.lock
