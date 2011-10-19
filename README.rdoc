@@ -14,18 +14,22 @@ The popular rails-based Beast forum, rewritten from the ground up with the same 
 * highline based easy console installer
 * internationalization via the I18n framework
 
-Check out the code via git:
-
-    git clone git://github.com/stiff/altered_beast.git
-
 
 === INSTALLATION
 
-    $ git clone git://github.com/stiff/altered_beast.git
+    $ git clone git://github.com/wxianfeng/altered_beast.git
     $ cd altered_beast
     $ bundle install
-    $ rake app:bootstrap
+    $ rake db:create
+    $ rake db:schema:load
+    $ rails c
+      site= Site.new({name: "weiyi",host: "localhost"})
+      site.save
+      user = User.new({login: "admin",email: "iamwxianfeng@qq.com",password: "123456",password_confirmation: "123456",admin: true,state: "active",site_id: site.id})
+      user.save(:validate=>false)
+    $ rails s
+
 
     Follow the instructions to create your database and load users.
-    Start the application with script/server and visit http://localhost:3000 to 
+    Start the application with script/server and visit http://localhost:3000 to
     visit your new forum.
