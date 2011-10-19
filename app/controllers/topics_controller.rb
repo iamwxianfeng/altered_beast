@@ -1,3 +1,4 @@
+#coding:utf-8
 class TopicsController < ApplicationController
   before_filter :find_forum
   before_filter :find_topic, :only => [:show, :edit, :update, :destroy]
@@ -47,7 +48,7 @@ class TopicsController < ApplicationController
         format.html { render :action => "new" }
         format.xml  { render :xml  => @topic.errors, :status => :unprocessable_entity }
       else
-        flash[:notice] = 'Topic was successfully created.'
+        flash[:notice] = '话题发表成功'
         format.html { redirect_to(forum_topic_path(@forum, @topic)) }
         format.xml  { render :xml  => @topic, :status => :created, :location => forum_topic_url(@forum, @topic) }
       end
@@ -82,7 +83,7 @@ class TopicsController < ApplicationController
     def find_forum
       @forum = current_site.forums.find_by_permalink!(params[:forum_id])
     end
-  
+
     def find_topic
       @topic = @forum.topics.find_by_permalink!(params[:id])
     end
